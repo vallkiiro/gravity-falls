@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+
+		.boxs {
+			height: 100px;
+			width: 100px;
+			background-image: url(wendy.jpg);
+			border: solid;
+			position: absolute;
+			background-size: 100% 100%;
+			color: white;
+		}
+		.firsBox {
+			background-color: white;
+			background-image: url(dipper.png);
+			background-size: 100% 100%;
+		}
+		.win{
+			display: none;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.loser{
+			display: none;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+	</style>
+</head>
+<body>
+<div style="height: 700px; background-image: url(gravity.jpg); background-size: 100% 100%">
+	<img src="win.jpg" class="win">
+	<img src="loser.jpg" class="loser">
+	<div class="content">
+		<h4 style="margin-left: 20px; color: white">Dipper's hat: <span class="score">0</span></h4>
+		<img src="dice3.png" class="bt" style="width: 100px; margin-left: 20px;">		
+		<div class="boxs firsBox" style="margin-left: 20px; color: red">
+			<h4>finish</h4>
+		</div>
+		<div class="boxs" style="margin-left: 130px">1</div>
+		<div class="boxs" style="margin-left: 240px;background-image: url(diary2.jpg);">2</div>
+		<div class="boxs" style="margin-left: 350px; background-image: url(bill2.jpg)">3</div>
+				
+		<div class="boxs" style="margin-left: 460px">4</div> 
+		<div class="boxs" style="margin-left: 570px">5</div>
+		<div class="boxs" style="margin-left: 680px; background-image: url(bill2.jpg)">6</div>
+		<div class="boxs" style="margin-left: 790px;background-size: 100% 100%;">7</div>
+
+		<div class="boxs" style="margin-left: 900px">8</div>
+		<div class="boxs" style="margin-left: 1010px;background-image: url(bill2.jpg)" >9</div>
+		<div class="boxs" style="margin-left: 1120px">10</div>
+		<div class="boxs" style="margin-left: 1230px">11</div>
+
+		<div class="boxs" style="margin-left: 1340px;color: gray; background-image: url(bill.jpg);">12 
+			<p>иди назад на -5 клеток</p>
+		</div>
+		<div class="boxs" style="margin-left: 1340px; margin-top: 110px; background-image: url(stanford.jpg);">13</div>
+		<div class="boxs" style="margin-left: 1340px; margin-top: 220px">14</div>	
+		<div class="boxs" style="margin-left: 1340px; margin-top: 330px">15</div>		
+
+		<div class="boxs" style="margin-left: 1340px;color: gray; margin-top: 440px;background-image: url(bill.jpg)">16</div>
+		<div class="boxs" style="margin-left: 1230px; margin-top: 440px">17</div>
+		<div class="boxs" style="margin-left: 1120px; margin-top: 440px">18</div>
+		<div class="boxs" style="margin-left: 1010px; margin-top: 440px;background-image: url(diary3.jpg)">19</div>
+
+		<div class="boxs" style="margin-left: 900px; margin-top: 440px">20</div>
+		<div class="boxs" style="margin-left: 790px; margin-top: 440px">21</div>
+		<div class="boxs" style="margin-left: 680px; margin-top: 440px;background-image: url(bill2.jpg)">22</div>
+		<div class="boxs" style="margin-left: 570px; margin-top: 440px">23</div>
+
+		<div class="boxs" style="margin-left: 460px; margin-top: 440px;background-image: url(mak.jpg)">24</div>
+		<div class="boxs" style="margin-left: 350px; margin-top: 440px">25</div>
+		<div class="boxs" style="margin-left: 240px; margin-top: 440px">26</div>
+		<div class="boxs" style="margin-left: 130px; margin-top: 440px">27</div>
+
+		<div class="boxs" style="margin-left: 20px; margin-top: 440px;background-image: url(past.jpg)">28</div>
+		<div class="boxs" style="margin-left: 20px; margin-top: 330px">29</div>
+		<div class="boxs" style="margin-left: 20px; margin-top: 220px">30</div>	
+		<div class="boxs" style="margin-left: 20px; margin-top: 110px">31</div>		
+
+		<!--последние дивы-->
+		<div class="boxs" style="margin-left: 130px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 240px; margin-top: 110px; background-color: green; opacity: 0">bknnklb</div>
+		<div class="boxs" style="margin-left: 350px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 460px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 570px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 680px; margin-top: 110px; background-color: green; opacity: 0"></div>
+
+	</div>	
+</div>		
+</body>
+</html>
+
+
+
+
+
+
+<script type="text/javascript">
+	let bt = document.querySelector(".bt")
+	let boxes = document.querySelectorAll(".boxs")
+
+	let text = document.querySelector(".score")
+	let score = 0
+	let step = 0
+
+	bt.onclick = function(){
+		let x = Math.random()*6
+		x = Math.round(x)
+		step = step + x
+		alert("у тебя выпало " + x + " иди на клетку " + step)
+		boxes[step-x].style.backgroundImage = "url(wendy.jpg)"
+		boxes[step].style.backgroundImage = "url(dipper.png)"
+		score = score + 10
+		text.innerHTML = score
+
+		
+		// потеря очков
+		if(step == 3 || step == 6 || step == 9 || step == 22){
+			alert("очки -20! иди на 1 клетку назад")
+			score = score - 30
+			step = step - 1
+			text.innerHTML = score
+			boxes[step].style.backgroundImage = "url(dipper.png)"
+			boxes[step+1].style.backgroundImage = "url(bill2.jpg)"
+		}
+		if(step == 12 || step==16){
+			alert("очки -40! иди на 5 клеток назад")
+			score = score - 50
+			step = step - 5
+			text.innerHTML = score
+			boxes[step].style.backgroundImage = "url(dipper.png)"
+			boxes[step+5].style.backgroundImage = "url(bill.jpg)"
+		}
+		if(step == 28){
+			alert("назад в прошлое. очки -10! иди на 2 клетки назад")
+			score = score - 20
+			step = step - 2
+			text.innerHTML = score
+			boxes[step].style.backgroundImage = "url(dipper.png)"
+			boxes[step+2].style.backgroundImage = "url(past.jpg)"
+		}
+
+		// набор дополнительных очков
+		if(step == 2|| step==13 || step==19|| step==24){
+			score = score + 20
+			text.innerHTML = score
+			alert("+30 очков!")
+		}
+
+
+		// game is over
+		if(step >= 31){
+			if(score>=120){
+				alert("ты победил!")
+				document.querySelector(".content").style.display = "none"
+				document.querySelector(".win").style.display = "block"
+			}
+			if(score<=110){
+				alert("ты набрал меньше 120! Ты проиграл!")
+				document.querySelector(".content").style.display = "none"
+				document.querySelector(".loser").style.display = "block"
+			}
+			
+		}
+		
+	}
+
+	// let lala = function(){
+	// 	score = score + 10
+	// 	text.innerHTML = score
+	// 	return score;
+	// }
+</script>
